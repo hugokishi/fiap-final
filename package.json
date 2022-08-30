@@ -7,7 +7,12 @@
   "scripts": {
     "start": "node dist/app/index.js",
     "start:dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify src/app/index.ts",
-    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored",
+    "migration:run": "ts-node ./node_modules/.bin/typeorm migration:run",
+    "migration:generate": "ts-node-dev ./node_modules/.bin/typeorm migration:generate -n",
+    "migration:create": "ts-node-dev ./node_modules/.bin/typeorm migration:create -n",
+    "migration:revert": "ts-node-dev ./node_modules/.bin/typeorm migration:revert",
+    "seed": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed"
   },
   "dependencies": {
     "@types/express-session": "^1.17.4",

@@ -4,18 +4,11 @@ services:
   db:
     network_mode: host
     image: postgres
-    container_name: "postgres-ka"
+    container_name: "pg-fiap"
     environment:
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=soundbit_dev
+      - POSTGRES_DB=fiap_dev
     ports:
       - 5432:5432
 
-  redis:
-    network_mode: host
-    container_name: redis
-    image: redis
-    command: redis-server
-    ports:
-      - "6379:6379"

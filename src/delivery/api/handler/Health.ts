@@ -1,27 +1,17 @@
-import {
-  init as InitRouter,
-  Request,
-  Response
-} from '@driver/http/express'
+import { init as InitRouter, Request, Response } from "@driver/http/express";
 
 export class HealthHandler {
-  constructor (router) {
-    router.get(
-      '/health',
-      this.health
-    )
+  constructor(router) {
+    router.get("/health", this.health);
   }
 
-  public health = async (
-    req: Request,
-    res: Response
-  ) => res.status(200).send('Server is running')
+  public health = async (req: Request, res: Response) => res.status(200).send("Server is running");
 }
 
 export const init = () => {
-  const router = InitRouter()
+  const router = InitRouter();
 
-  return new HealthHandler(router)
-}
+  return new HealthHandler(router);
+};
 
-export default init
+export default init;
