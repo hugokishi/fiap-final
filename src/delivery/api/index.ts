@@ -9,6 +9,7 @@ import { init as InitErrorMiddleware } from "@api/middleware/Error"
 
 import HealthHandler from "@handler/Health"
 import UserHandler from "@handler/User"
+import AuthorizationHandler from "@handler/Authorization"
 
 const defineMiddelwares = (router, express) => {
   InitErrorMiddleware()
@@ -45,6 +46,7 @@ const defineMiddelwares = (router, express) => {
 const defineHandlers = () => {
   HealthHandler()
   UserHandler()
+  AuthorizationHandler()
 }
 
 const init = (router, express) => {

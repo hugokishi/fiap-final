@@ -10,8 +10,12 @@ export class UserRepository {
     this.db = db.getRepository(User)
   }
 
-  public create = async (user: User) => {
+  public create = async (user: User): Promise<User> => {
     return this.db.save(user)
+  }
+
+  public findByEmail = async (email: string): Promise<User> => {
+    return this.db.findOne({ where: { email } })
   }
 }
 
