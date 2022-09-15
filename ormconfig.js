@@ -1,9 +1,9 @@
-const rootDir = process.env.ORM_ROOT_DIR;
+const rootDir = process.env.ORM_ROOT_DIR
 
 module.exports = {
   type: "postgres",
   url: process.env.DATABASE_URL,
-  synchronize: false,
+  synchronize: true,
   logging: false,
   entities: [rootDir + "/domain/entity/**/*.{js,ts}"],
   migrations: [rootDir + "/domain/migration/*.{js,ts}"],
@@ -12,4 +12,4 @@ module.exports = {
     entitiesDir: "src/domain/entity",
     migrationsDir: "src/domain/migration",
   },
-};
+}

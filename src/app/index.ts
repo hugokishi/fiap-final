@@ -1,14 +1,14 @@
-import dotenv from 'dotenv'
-import 'reflect-metadata'
+import dotenv from "dotenv"
+import "reflect-metadata"
 
-import { createConnection } from 'typeorm'
+import { createConnection } from "typeorm"
 
-import expressInit from '@driver/http/express'
-import postgres from '@driver/database/postgres'
-import api from '../delivery/api'
+import expressInit from "@driver/http/express"
+import postgres from "@driver/database/postgres"
+import api from "../delivery/api"
 
-import signal from './signal'
-import { init as InitLogger } from './logger'
+import signal from "./signal"
+import { init as InitLogger } from "./logger"
 
 dotenv.config({ path: process.env.DOTENV_PATH || undefined })
 
@@ -22,17 +22,17 @@ const main = async (connection) => {
 
     api.init(router, express)
 
-    process.on('SIGTERM', signal.shutdown)
-    process.on('SIGINT', signal.shutdown)
+    process.on("SIGTERM", signal.shutdown)
+    process.on("SIGINT", signal.shutdown)
 
-    server.listen(process.env.SERVER_PORT, (err?) => {
+    server.listen(process.env.PORT, (err?) => {
       if (err) {
         throw err
       }
       log.info(
         `API CORE is running at http://${process.env.SERVER_HOST}:${
-          process.env.SERVER_PORT
-        } in ${router.get('env')} mode ${process.env.NODE_ENV}`
+          process.env.PORT
+        } in ${router.get("env")} mode ${process.env.NODE_ENV}`,
       )
     })
   } catch (err) {

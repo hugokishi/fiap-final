@@ -16,20 +16,7 @@ const defineMiddelwares = (router, express) => {
   InitErrorMiddleware()
   router.use(express.json())
   router.use(tracer.middlewareForExpress())
-  router.use(
-    cors({
-      credentials: true,
-      origin: ["http://localhost:3100"],
-      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-      allowedHeaders: [
-        "Content-Type",
-        "Authorization",
-        "Accept",
-        "X-Requested-With",
-        "Content-Length",
-      ],
-    }),
-  )
+  router.use(cors())
   router.use(
     bodyParser.urlencoded({
       limit: "50mb",

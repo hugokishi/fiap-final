@@ -2,7 +2,6 @@ version: "3.2"
 
 services:
   db:
-    network_mode: host
     image: postgres
     container_name: "pg-fiap"
     environment:
