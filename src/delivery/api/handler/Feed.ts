@@ -7,7 +7,7 @@ export class FeedHandler {
   constructor({ router, feedUseCase }) {
     this.feedUseCase = feedUseCase
 
-    router.post("/users", this.create)
+    router.post("/feed", this.create)
   }
 
   public create = async (req: Request, res: Response, next: NextFunction) => {
