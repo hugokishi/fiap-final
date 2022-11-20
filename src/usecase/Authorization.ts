@@ -20,6 +20,8 @@ export class AuthorizationUseCase {
       throw new Error(`Invalid password or email`)
     }
 
+    delete user.password
+
     return user
   }
 }
